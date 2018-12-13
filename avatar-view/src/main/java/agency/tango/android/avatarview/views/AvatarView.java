@@ -190,4 +190,9 @@ public class AvatarView extends ImageView {
         this.borderPaint.setColor(borderColor);
         invalidate();
     }
+
+    public void setBorderWidth(int borderWidth) {
+        this.borderWidth = borderWidth;
+        invalidate();
+    }
 }
