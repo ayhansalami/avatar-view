@@ -1,21 +1,15 @@
 package agency.tango.android.avatarview.views;
 
+import agency.tango.android.avatarview.AvatarPlaceholder;
+import agency.tango.android.avatarview.R;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
+import android.graphics.*;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-
-import agency.tango.android.avatarview.AvatarPlaceholder;
-import agency.tango.android.avatarview.R;
 import timber.log.Timber;
 
 public class AvatarView extends ImageView {
@@ -188,6 +182,12 @@ public class AvatarView extends ImageView {
     @Override
     protected void drawableStateChanged() {
         super.drawableStateChanged();
+        invalidate();
+    }
+
+    public void setBorderColor(int borderColor) {
+        this.borderColor = borderColor;
+        this.borderPaint.setColor(borderColor);
         invalidate();
     }
 }
